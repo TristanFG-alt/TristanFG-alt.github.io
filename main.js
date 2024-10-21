@@ -17,7 +17,7 @@ const jesstext = "Happy birthday bro|hope you're doing well in Singapore and get
 const regularcastext = "In a couple of years, with all the hard physical and mental work you've been putting into your life, you'll be able to achieve whatever you want. Strength like yours isn't unnoticeable and your sister knows that too.| I know it's not a lot and you know this already but people care about you. Your family, your friends, everyone you love.|I wish for everything but the best for you.|With whatever choice and decision you make for your life, you'll do great.|Happy birthday, Richard.||-cas"
 const ektext = "Happy 23rd birthday ako gyi yae🥳🥳|Tq for always replying to my weird yet strange question everytime💀💀|Though I kinda feel bad always asking u and bothering u😭|But I'm glad you always take your time to answer my dumb questions and always giving me advices|U really are one of the ako gyi's I could really rely on and I'm glad that I have met u|Hope u da best in SG ako gyi yae🥳🥳🥳|birthday boy gyi😈😈👹🎂🎂||-ek"
 const boycastext = "Hey man, happy birthday. It's been a while and I hope you are doing great, all the best in your future - Ako Cas"
-const tristantext = "Hey, sorry this website is so bad. I hope it renders correctly on your device. Web design really isn't my thing, but I tried.|Tell jess she owes me $2.90 USD at an interest rate of 8%, compounding annually.|Anyway, I hope you have a great 23rd birthday, and I hope school and everything is going well too.||-tristan"
+const tristantext = "Hey, sorry this website is so bad. I hope it renders correctly on your device. Web design really isn't my thing, but I tried.|Tell jess she owes me $2.90 USD at an interest rate of 8%, compounding annually.|I hope you have a great 23rd birthday, and I hope school and everything is going well too.||-tristan"
 
 
 jessmsg.addEventListener("click", () => {
@@ -66,7 +66,11 @@ function setup(msg, shown) {
 
 let i = 0;
 let delay;
+// do a cool scramble thing if you add more characters to the letters variable
+let letters = '|';
+let j = 0;
 function typewriter() {
+    msgbox.innerHTML = msgbox.innerHTML.slice(0, -1);
     let delay = !currentmsgshown ? Math.random() * 100 : 0;
     if (i < currentmsg.length) {
         if (currentmsg.charAt(i) == '|') {
@@ -74,11 +78,19 @@ function typewriter() {
             delay = !currentmsgshown ? 500 : 0;
         }
         else {
+            // msgbox.innerHTML += currentmsg.charAt(i);
+            // msgbox.innerHTML = msgbox.slice(0, msgbox.innerHTML.length - 1) + currentmsg.charAt(i) + msgbox.slice(msgbox.innerHTML.length - 1);
             msgbox.innerHTML += currentmsg.charAt(i);
         }
+        // msgbox.innerHTML += '|';
+        msgbox.innerHTML += letters.charAt(j);
+        j++;
+        j %= letters.length;
         i++;
     } else {
         return;
     }
+    
     setTimeout(typewriter, delay);
+    
 }
