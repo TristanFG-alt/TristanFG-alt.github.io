@@ -78,11 +78,8 @@ function typewriter() {
             delay = !currentmsgshown ? 500 : 0;
         }
         else {
-            // msgbox.innerHTML += currentmsg.charAt(i);
-            // msgbox.innerHTML = msgbox.slice(0, msgbox.innerHTML.length - 1) + currentmsg.charAt(i) + msgbox.slice(msgbox.innerHTML.length - 1);
             msgbox.innerHTML += currentmsg.charAt(i);
         }
-        // msgbox.innerHTML += '|';
         msgbox.innerHTML += letters.charAt(j);
         j++;
         j %= letters.length;
