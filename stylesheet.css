@@ -9,14 +9,16 @@ body {
     justify-content: center;
 }
 .mainfigure {
+    background-image: url("assets/envelope.png");
+    background-color: transparent;
     background-size: contain;
     background-repeat: no-repeat;
     width: 100%;
     height: 0;
-    padding-top: 258px;
+    padding-top: 400px;
     border: none;
     margin: 10px;
-    margin-top: 200px;
+    margin-top: 100px;
 }
 
 #tristan {
@@ -32,7 +34,7 @@ body {
     border: none;
 }
 
-#jess {
+/* #jess {
     background-image: url("assets/envelope.png");
 }
 
@@ -46,7 +48,7 @@ body {
 
 #boycas {
     background-image: url("assets/envelope.png");
-}
+} */
 
 /* The Modal (background) */
 .modal {
@@ -82,8 +84,9 @@ body {
 }
 
 .mainfigure:hover {
-    transform: scale(1.05);
-    transition: 0.5s;
+    background-image: url("assets/envelope-open.png");
+    /* transform: scale(1.05); */
+    /* transition: 0.5s; */
 }
 
 #tristan:hover {

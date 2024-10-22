@@ -61,7 +61,11 @@ function setup(msg, shown) {
     currentmsgshown = shown;
     msgbox.innerHTML = "";
     msgwindow.style.display = "block";
-    typewriter();
+    if (!shown) {
+        typewriter();
+    } else {
+        msgbox.innerHTML = msg.replaceAll('|', '<br/>');
+    }
 }
 
 let i = 0;
@@ -71,11 +75,11 @@ let letters = '|';
 let j = 0;
 function typewriter() {
     msgbox.innerHTML = msgbox.innerHTML.slice(0, -1);
-    let delay = !currentmsgshown ? Math.random() * 100 : 0;
-    if (i < currentmsg.length) {
+    let delay = Math.random() * 100;
+    if (i < currentmsg.length && msgwindow.style.display == "block") {
         if (currentmsg.charAt(i) == '|') {
             msgbox.innerHTML += "<br/>";
-            delay = !currentmsgshown ? 500 : 0;
+            delay = 500;
         }
         else {
             msgbox.innerHTML += currentmsg.charAt(i);
@@ -89,5 +93,4 @@ function typewriter() {
     }
     
     setTimeout(typewriter, delay);
-    
 }
